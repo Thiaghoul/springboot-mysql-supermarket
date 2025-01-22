@@ -1,11 +1,9 @@
 package com.thiaghoul.supermarket.entities;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.OneToMany;
-import jakarta.persistence.OneToOne;
+import jakarta.persistence.*;
 import lombok.Data;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -13,6 +11,7 @@ import java.util.List;
 public class Cliente {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
     private String nome;
@@ -20,11 +19,10 @@ public class Cliente {
     private String telefone;
 
     @OneToOne
+    @JoinColumn(name = "endereco_id")
     private Endereco endereco;
 
-    @OneToMany
-    private List<Pedido> pedidos;
-
-
+    @OneToMany (mappedBy = "cliente", cascade = CascadeType.ALL)
+    private List<Pedido> pedidos = new ArrayList<>();
 
 }

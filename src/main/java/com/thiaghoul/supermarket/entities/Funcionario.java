@@ -1,22 +1,24 @@
 package com.thiaghoul.supermarket.entities;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.OneToMany;
+import jakarta.persistence.*;
+import lombok.Data;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
+@Data
 public class Funcionario {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.UUID)
     private String id;
 
     private String nome;
     private Double salario;
     private Cargo cargo;
 
-    @OneToMany
-    private List<Pedido> pedidos;
+    @OneToMany (mappedBy = "funcionario")
+    private List<Pedido> pedidos = new ArrayList<>();
 
 }
