@@ -1,16 +1,18 @@
 package com.thiaghoul.supermarket.entities;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.OneToMany;
-import jakarta.persistence.OneToOne;
+import jakarta.persistence.*;
 import lombok.Data;
+
+import java.io.Serializable;
 
 @Entity
 @Data
-public class Endereco {
+public class Endereco implements Serializable {
+
+    private static final long serialVersionUID = 1L;
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
     private String rua;

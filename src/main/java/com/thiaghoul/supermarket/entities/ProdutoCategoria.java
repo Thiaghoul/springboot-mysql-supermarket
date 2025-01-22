@@ -1,4 +1,12 @@
 package com.thiaghoul.supermarket.entities;
 
-public class ProdutoCategoria {
+import java.io.Serializable;
+
+public class ProdutoCategoria implements Serializable {
+
+    private static final long serialVersionUID = 1L;
+
+
+
+
 }

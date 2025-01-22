@@ -1,11 +1,16 @@
 package com.thiaghoul.supermarket.entities;
 
 import jakarta.persistence.*;
+import lombok.Data;
 
+import java.io.Serializable;
 import java.util.Date;
 
 @Entity
-public class Pedido {
+@Data
+public class Pedido implements Serializable {
+
+    private static final long serialVersionUID = 1L;
 
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)

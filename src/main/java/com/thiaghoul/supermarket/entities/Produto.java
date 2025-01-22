@@ -1,19 +1,29 @@
 package com.thiaghoul.supermarket.entities;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
+import lombok.Data;
 
+import java.io.Serializable;
 import java.util.Date;
 
 @Entity
-public class Produto {
+@Data
+public class Produto implements Serializable {
+
+    private static final long serialVersionUID = 1L;
 
     @Id
+    @GeneratedValue(strategy = GenerationType.UUID)
     private String id;
 
+    @Column(nullable = false)
     private String nome;
+
+    @Column(nullable = false)
     private Double preco;
+
     private Date dataValidade;
+
     private int quantidade;
 
 
