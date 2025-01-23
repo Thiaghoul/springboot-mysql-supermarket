@@ -5,9 +5,12 @@ import lombok.Data;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Data
+@Table(name = "tb_pedido")
 public class Pedido implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -28,4 +31,11 @@ public class Pedido implements Serializable {
     @ManyToOne
     @JoinColumn(name = "funcionario_id", nullable = false)
     private Funcionario funcionario;
+
+    @OneToOne(mappedBy = "pedido", cascade = CascadeType.ALL)
+    private Pagamento pagamento;
+
+    @OneToMany(mappedBy = "id.pedido")
+    private Set<PedidoProduto> pedidosProdutos = new HashSet<>();
+
 }

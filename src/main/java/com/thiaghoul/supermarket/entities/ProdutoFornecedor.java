@@ -3,6 +3,7 @@ package com.thiaghoul.supermarket.entities;
 import com.thiaghoul.supermarket.entities.pk.ProdutoFornecedorPk;
 import jakarta.persistence.EmbeddedId;
 import jakarta.persistence.Entity;
+import jakarta.persistence.Table;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
@@ -11,6 +12,7 @@ import java.io.Serializable;
 @Entity
 @Data
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
+@Table(name = "tb_produto_fornecedor")
 public class ProdutoFornecedor implements Serializable {
 
     private static final long serialVersionUID = 1L;

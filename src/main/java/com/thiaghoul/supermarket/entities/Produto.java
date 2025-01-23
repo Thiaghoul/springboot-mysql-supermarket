@@ -5,9 +5,12 @@ import lombok.Data;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Data
+@Table(name = "tb_produto")
 public class Produto implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -25,6 +28,9 @@ public class Produto implements Serializable {
     private Date dataValidade;
 
     private int quantidade;
+
+    @OneToMany(mappedBy = "id.produto")
+    private Set<PedidoProduto> pedidosProdutos = new HashSet<>();
 
 
 }
