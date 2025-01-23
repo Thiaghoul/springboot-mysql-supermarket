@@ -5,7 +5,9 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 
 import java.io.Serializable;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 @Entity
 @Data
@@ -24,6 +26,9 @@ public class Fornecedor implements Serializable {
     private String nome;
 
     private String telefone;
+
+    @OneToMany(mappedBy = "id.fornecedor")
+    private Set<ProdutoFornecedor> produtosFornecedores = new HashSet<>();
 
 
 
