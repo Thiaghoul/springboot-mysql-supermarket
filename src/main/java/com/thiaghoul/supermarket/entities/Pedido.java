@@ -1,5 +1,6 @@
 package com.thiaghoul.supermarket.entities;
 
+import com.thiaghoul.supermarket.entities.enums.StatusPagamento;
 import jakarta.persistence.*;
 import lombok.Data;
 

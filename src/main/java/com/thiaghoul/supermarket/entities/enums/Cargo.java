@@ -1,4 +1,4 @@
-package com.thiaghoul.supermarket.entities;
+package com.thiaghoul.supermarket.entities.enums;
 
 public enum Cargo {
 
