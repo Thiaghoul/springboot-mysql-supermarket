@@ -39,4 +39,7 @@ public class Pedido implements Serializable {
     @OneToMany(mappedBy = "id.pedido")
     private Set<PedidoProduto> pedidosProdutos = new HashSet<>();
 
+    @OneToOne(mappedBy = "pedido", cascade = CascadeType.ALL)
+    private Entrega entrega;
+
 }
